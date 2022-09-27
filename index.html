@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title>客服咨询</title>
+<link rel="stylesheet" type="text/css" href="1/chat.css" />
+<style>a{ TEXT-DECORATION:none}a:hover{TEXT-DECORATION:underline }</style>   
+<script src="1/jquery.min.js"></script>
+<script src="1/flexible.js"></script>
+</head>
+<body>
+
+<header class="header">
+	<a class="back" href="javascript:history.back()"></a>
+	<h5 class="tit">客服人工智能</h5>
+	<div class="right"><a href="index.html"><font color="#000000">返回</font></a></div>
+</header>
+<div class="message">
+
+<div class="send">
+	
+ 	</div>
+	</div>
+</div>
+	
+<div class="footer">
+ <img src="https://nim-nosdn.netease.im/MTExNTUxNzE=/bmltYV8zMzY4NzE2MzU4NV8xNjYzMjcwMDk1NzU0X2YzY2UwYzY4LTRhZGEtNDJiNS05M2IzLTAyOTkyZjZlZmRlZg==?createTime=1663270096250" alt="" />
+	<input type="text"  />
+	<p>发送</p>
+</div>
+
+<script type="text/javascript">
+/*发送消息*/
+function send(headSrc,str){
+	var html="<div class='send'><div class='msg'><img src="+headSrc+" />"+
+	"<p><i class='msg_input'></i>"+str+"</p></div></div>";
+	upView(html);
+}
+/*接受消息*/
+function show(headSrc,str){
+	var html="<div class='show'><div class='msg'><img src="+headSrc+" />"+
+	"<p><i class='msg_input'></i>"+str+"</p></div></div>";
+	upView(html);
+}
+/*更新视图*/
+function upView(html){
+	$('.message').append(html);
+	$('body').animate({scrollTop:$('.message').outerHeight()-window.innerHeight},200)
+}
+function sj(){
+	return parseInt(Math.random()*10)
+}
+$(function(){
+	$('.footer').on('keyup','input',function(){
+		if($(this).val().length>0){
+			$(this).next().css('background','#114F8E').prop('disabled',true);
+		
+		}else{
+			$(this).next().css('background','#ddd').prop('disabled',false);
+		}
+	})
+	$('.footer p').click(function(){
+		show("https://nim-nosdn.netease.im/MTExNTUxNzE=/bmltYV8zMzY4NzE2MzU4NV8xNjYzNDU4NDU1ODU0X2VhNWMyZTJiLWQ4MDMtNGI5Yi1hYTY5LWExZmI1MzQ5NTljYQ==?createTime=1663458456845",$(this).prev().val());
+		test();
+	})
+})
+
+/*测试数据*/
+var arr=['<a href="https://sh520i.github.io/dh/">这是主人的发布地址: https://sh520i.github.io/dh/</a>','主人微信号: sh520iii','<video width="100%" controls controlslist="nodownload" disablePictureInPicture autoplay="autoplay"height="100%" id="mp4Src"<video controls=""autoplay=""name="media"><source src="http://vcdnb.huoying666.com/new_video/2022/0519/f48205c612d06ad96ea86b02d3c6c9f0/v720/f48205c611_6843805_hd.mp4"type="video/mp4">','<a href=https://tpii.bj.bcebos.com/kf.jpg><img src="https://tpii.bj.bcebos.com/kf.jpg">','不要发信息给我了哦，我忙去了，有事就加我主人的微信号吧。'];
+var imgarr=['images/touxiangm.png','images/touxiangm.png']
+test()
+function test(){
+	$(arr).each(function(i){
+		setTimeout(function(){
+			send("https://nim-nosdn.netease.im/MTExNTUxNzE=/bmltYV8zMzY4NzE2MzU4NV8xNjYzNDU4NTU5MTE0X2I3MGI5YWM5LWQzZmMtNDgyZS1hYzExLTMyNmI2NzNhMWM0Nw==?createTime=1663458559710",arr[i])
+		},sj()*500)
+	})
+}
+</script>
+
+</body>
+</html>
